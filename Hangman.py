@@ -95,7 +95,7 @@ def Encrypt(TheWord):
 def Guesses(word,EncryptArray):
     
     letter=input("Guess a letter: ").lower()
-    while (letter<="a" or letter>="z") or (letter<="A" or letter>="Z"):
+    while (letter<="a" or letter>="z"):
         letter=input("Enter a Letter (A-Z or a-z): ").lower()
 
     length=len(word)

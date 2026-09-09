@@ -1,7 +1,7 @@
 import random
 #This will display the options 
 def Display():
-    print("Choose a Cateogory: ","\n","1. Fruits","\n","2. Countries","\n","3. Animals","\n","4. Random")
+    print("Choose a Category: ","\n","1. Fruits","\n","2. Countries","\n","3. Animals","\n","4. Random")
     choose=input("Choose an option (1-4): ")
     correct=False
     while correct==False:
@@ -42,32 +42,32 @@ def Random():
 #this will find a word randomly to use from fruits
 def Fruits():
     FruitFile=open("Fruit.txt","r")
-    index=random.randint(0,100)
+    index=random.randint(1,100)
     for x in range (index):
         line=FruitFile.readline().strip()
     word=line
-    close.FruitFile()
+    FruitFile.close()
     Control(word)
 
 #this will find a word randomly to use from animals
 def Animals():
     AnimalFile=open("Animals.txt","r")
-    index=random.randint(0,100)
+    index=random.randint(1,100)
     for x in range (index):
         line=AnimalFile.readline().strip()
     word=line
-    close.AnimalFile()
+    AnimalFile.close()
     Control(word)
     
 
 #this will find a word randomly to use from countries
 def Countries():
     CountryFile=open("Country.txt","r")
-    index=random.randint(0,192)
+    index=random.randint(1,192)
     for x in range (index):
         line=CountryFile.readline().strip()
     word=line
-    close.CountryFile()
+    CountryFile.close()
     Control(word)
     
 
@@ -78,9 +78,9 @@ def Encrypt(TheWord):
         letter=TheWord[index]
 
 
-        if letter!="" and (letter>="a" or letter<="z"):
+        if letter!="" and (letter>="a" and letter<="z"):
             EncryptedWord=EncryptedWord+"_"
-        elif letter!="" and (letter>="A" or letter<="Z"):
+        elif letter!="" and (letter>="A" and letter<="Z"):
             EncryptedWord=EncryptedWord+"_"
         else:
             EncryptedWord=EncryptedWord+letter
@@ -95,7 +95,7 @@ def Encrypt(TheWord):
 def Guesses(word,EncryptArray):
     
     letter=input("Guess a letter: ").lower()
-    while (letter<="a" or letter>="z") and (letter<="A" or letter>="Z"):
+    while (letter<="a" or letter>="z") or (letter<="A" or letter>="Z"):
         letter=input("Enter a Letter (A-Z or a-z): ").lower()
 
     length=len(word)

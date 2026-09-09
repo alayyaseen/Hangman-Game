@@ -46,6 +46,7 @@ def Fruits():
     for x in range (index):
         line=FruitFile.readline().strip()
     word=line
+    close.FruitFile()
     Control(word)
 
 #this will find a word randomly to use from animals
@@ -55,6 +56,7 @@ def Animals():
     for x in range (index):
         line=AnimalFile.readline().strip()
     word=line
+    close.AnimalFile()
     Control(word)
     
 
@@ -65,6 +67,7 @@ def Countries():
     for x in range (index):
         line=CountryFile.readline().strip()
     word=line
+    close.CountryFile()
     Control(word)
     
 
@@ -75,9 +78,9 @@ def Encrypt(TheWord):
         letter=TheWord[index]
 
 
-        if letter!="" and letter>="a" and letter<="z":
+        if letter!="" and (letter>="a" or letter<="z"):
             EncryptedWord=EncryptedWord+"_"
-        elif letter!="" and letter>="A" and letter<="Z":
+        elif letter!="" and (letter>="A" or letter<="Z"):
             EncryptedWord=EncryptedWord+"_"
         else:
             EncryptedWord=EncryptedWord+letter
@@ -92,7 +95,7 @@ def Encrypt(TheWord):
 def Guesses(word,EncryptArray):
     
     letter=input("Guess a letter: ").lower()
-    while (letter<="a" and letter>="z") and (letter<="A" and letter>="Z"):
+    while (letter<="a" or letter>="z") and (letter<="A" or letter>="Z"):
         letter=input("Enter a Letter (A-Z or a-z): ").lower()
 
     length=len(word)
